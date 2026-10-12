@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: banking_postgres
+    environment:
+      POSTGRES_USER: security_admin
+      POSTGRES_PASSWORD: BankSecurePassword123!
+      POSTGRES_DB: banking_compliance
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin-ui:
+    image: dpage/pgadmin4
+    container_name: banking_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@securebank.com
+      PGADMIN_DEFAULT_PASSWORD: AdminPassword123!
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres-db
+
+volumes:
+  pgdata:
