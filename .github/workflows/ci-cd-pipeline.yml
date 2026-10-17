@@ -1,0 +1,47 @@
+name: Banking Compliance Automation Pipeline
+
+# ⚡ Trigger: Run this entire assembly line automatically whenever anyone pushes code
+on:
+  push:
+    branches: [ main, feature/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    # ☁️ The environment: Spin up a completely clean, remote Linux virtual server container
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Pull the freshly pushed code text out of the GitHub vault into the server
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      # Step 2: Install and configure the official Java JDK environment on the cloud runner
+      - name: Set up Java Development Kit (JDK 17)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      # Step 3: Boot up a detached, sandboxed PostgreSQL database container in the remote cloud grid
+      - name: Spin up Test Database Container
+        run: |
+          docker run -d --name test_postgres \
+            -e POSTGRES_USER=security_admin \
+            -e POSTGRES_PASSWORD=BankSecurePassword123! \
+            -e POSTGRES_DB=banking_compliance \
+            -p 5432:5432 \
+            postgres:15-alpine
+          
+          # Wait 5 seconds to ensure the database server is fully awake and listening
+          sleep 5
+
+      # Step 4: Automatically compile the application and execute your automated verification tests
+      - name: Compile and Test with Maven
+        run: mvn clean test
+
+      # Step 5: Package the completed backend engine into an executable deployment file
+      - name: Package Java Application
+        run: mvn package -DskipTests
