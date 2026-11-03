@@ -1,6 +1,6 @@
 # banking-iam-governance-pipeline
 An enterprise-grade Identity Governance &amp; Administration (IGA) pipeline for banking compliance.
-# 🔒 Enterprise Access Governance & Compliance Automation Pipeline
+# Enterprise Access Governance & Compliance Automation Pipeline
 
 A production-grade, containerized **DevOps & Platform Engineering architecture sandbox** that models end-to-end user access governance tracking, continuous integration, and automated compliance auditing within a highly regulated corporate banking framework.
 
@@ -8,30 +8,30 @@ This repository demonstrates how to bridge distinct platform layers—including 
 
 ---
 
-## 🗺️ Architectural Traffic Flow Matrix
+## Architectural Traffic Flow Matrix
 
 ```text
- [ 🖥️ Client UI Terminal ] ➔ (Triggers administrative "REVOKED" click events)
+ [ Client UI Terminal ] ➔ (Triggers administrative "REVOKED" click events)
               │
               ▼
- [ 🛡️ ForgeRock IAM Gate ] ➔ (Validates token metadata & intercepts security state)
+ [ ForgeRock IAM Gate ] ➔ (Validates token metadata & intercepts security state)
               │
               ▼
- [ 🐋 Docker Compose / SQL ] ➔ (Isolates multi-container network & PostgreSQL engine)
+ [  Docker Compose / SQL ] ➔ (Isolates multi-container network & PostgreSQL engine)
               │
               ▼
- [ ☕ Java Backend Utility ] ➔ (Leverages JDBC driver to extract & parse raw logs)
+ [  Java Backend Utility ] ➔ (Leverages JDBC driver to extract & parse raw logs)
               │
               ▼
- [ 📊 Audit-Ready Spreadsheet ] ➔ (Outputs 'banking_compliance_report.csv')
+ [  Audit-Ready Spreadsheet ] ➔ (Outputs 'banking_compliance_report.csv')
               │
               ▼
- [ ⚡ GitHub Actions Runway ] ➔ (Executes continuous integration server compilation)
+ [  GitHub Actions Runway ] ➔ (Executes continuous integration server compilation)
 ```
 
 ---
 
-## 🛠️ The DevOps Toolchain Blueprint
+##  The DevOps Toolchain Blueprint
 
 * **Integrated Workspace:** **IntelliJ IDEA** for centralized file editing, local compilation validation, and version control stage management.
 * **Infrastructure Sandbox:** **Docker & Docker Compose** for local microservice isolation, network bridging, and parameter binding.
@@ -42,26 +42,26 @@ This repository demonstrates how to bridge distinct platform layers—including 
 
 ---
 
-## 📁 Repository Layout Directory
+##  Repository Layout Directory
 ```text
 ├── .github/
 │   └── workflows/
-│       └── ci-cd-pipeline.yml   # ⚡ Automated GitHub Actions cloud runner blueprint
+│       └── ci-cd-pipeline.yml   #  Automated GitHub Actions cloud runner blueprint
 ├── src/
 │   └── main/
 │       └── java/
 │           └── com/banking/governance/
 │               └── ComplianceReporter.java # ☕ Core Java JDBC extraction utility engine
-├── docker-compose.yml           # 🐋 Multi-container network virtualization mapping
-├── schema.sql                   # 🗄️ Relational database structural DDL blueprints
-├── insert_mock_data.sql         # 🎭 ForgeRock data injection record simulation
-├── index.html                   # 🖥️ Interactive bank manager simulation dashboard
-└── pom.xml                      # 📦 Maven dependency management structure
+├── docker-compose.yml           #  Multi-container network virtualization mapping
+├── schema.sql                   #  Relational database structural DDL blueprints
+├── insert_mock_data.sql         #  ForgeRock data injection record simulation
+├── index.html                   #  Interactive bank manager simulation dashboard
+└── pom.xml                      #  Maven dependency management structure
 ```
 
 ---
 
-## ⚙️ Core System Architecture Mechanics
+##  Core System Architecture Mechanics
 
 ### 1. The Perimeter Identity Layer (`index.html` & `schema.sql`)
 * Focuses on simulating a responsive, front-facing administration panel representing security operator access controls.
@@ -87,14 +87,14 @@ This repository demonstrates how to bridge distinct platform layers—including 
 
 ---
 
-## 🚀 Local Installation & Execution Steps
+##  Local Installation & Execution Steps
 
-### 📌 Prerequisites
+###  Prerequisites
 * Java Development Kit (JDK 17) and Maven installed locally.
 * Docker Desktop active in your background systems layer.
 * IntelliJ IDEA or an equivalent integrated workspace.
 
-### 🛠️ Step-by-Step Deployment Guide
+###  Step-by-Step Deployment Guide
 
 **1. Clone the repository blueprints and boot the infrastructure sandbox:**
 ```bash
@@ -117,7 +117,7 @@ docker-compose up -d
 
 ---
 
-## 💡 Key Engineering Takeaways & Troubleshot Lessons
+##  Key Engineering Takeaways & Troubleshot Lessons
 Building this lifecycle architecture provided deep experience isolating typical platform environment integration hurdles:
 * **Infrastructure Cache Eviction:** Diagnosed container cached storage synchronization locks, deploying volume teardown procedures (`docker-compose down -v`) to successfully wipe stale volume memories and ensure fresh credential alignment.
 * **Data Drift Remediation:** Troubleshot silent data log aggregation failures caused by strict string query mismatches (`'REVOKE'` vs `'REVOKED'`), utilizing high-fidelity database inspections to identify drift and align database filtering queries exactly.
