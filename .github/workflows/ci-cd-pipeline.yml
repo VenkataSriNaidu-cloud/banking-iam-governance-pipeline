@@ -1,6 +1,6 @@
 name: Banking Compliance Automation Pipeline
 
-# ⚡ Trigger: Run this entire assembly line automatically whenever anyone pushes code
+#  Trigger: Run this entire assembly line automatically whenever anyone pushes code
 on:
   push:
     branches: [ main, feature/* ]
